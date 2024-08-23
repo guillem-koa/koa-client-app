@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Reporting from './pages/Reporting';
+import Remote from './pages/Remote';
+import ColonyCounting from './pages/ColonyCounting';
+import Sequencing from './pages/Sequencing';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div style={{ display: 'flex' }}>
+        <Sidebar />
+        <div style={{ flex: 1, padding: '20px', backgroundColor: '#fff' }}>
+          <Routes>
+            <Route path="/reporting" element={<Reporting />} />
+            <Route path="/remote" element={<Remote />} />
+            <Route path="/colonycounting" element={<ColonyCounting />} />
+            <Route path="/sequencing" element={<Sequencing />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
