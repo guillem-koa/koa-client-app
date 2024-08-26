@@ -62,6 +62,7 @@ const Sequencing = () => {
   };
 
   return (
+    <div class="centered-container">
     <div className="container">
       <div className="content">
         <h2>Lab Sequencing Data 🧬</h2>
@@ -120,6 +121,8 @@ const Sequencing = () => {
         )}
       </div>
     </div>
+    </div>
+
   );
 };
 

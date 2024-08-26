@@ -43,6 +43,7 @@ const ColonyCounting = () => {
     };
 
     return (
+        <div class="centered-container">
         <div class="container">
             <div class="content">
                 <h2> Colony Counting on LB Agar 🧫</h2>
@@ -70,6 +71,7 @@ const ColonyCounting = () => {
                     </div>
                 )}
             </div>
+        </div>
         </div>
     );
 };

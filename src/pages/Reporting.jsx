@@ -199,8 +199,8 @@ function Reporting() {
   }
 
   return (
-    <div>
-      <main className="main-content">
+<div class="centered-container">    
+<main className="main-content">
         {generateOutputsTable}
         {sendEmailsTable}
       </main>

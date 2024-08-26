@@ -12,8 +12,9 @@ const App = () => {
     <Router>
       <div style={{ display: 'flex' }}>
         <Sidebar />
-        <div style={{ flex: 1, padding: '20px', backgroundColor: '#fff' }}>
+        <div style={{ flex: 1, padding: '20px', backgroundColor: '#f5f5f5' }}>
           <Routes>
+            <Route path="/" element={<Reporting />} />
             <Route path="/reporting" element={<Reporting />} />
             <Route path="/remote" element={<Remote />} />
             <Route path="/colonycounting" element={<ColonyCounting />} />

@@ -6,6 +6,7 @@
   padding: 20px;
 }
 
+
 h2 {
   margin-left: 50px;
   margin-right: 50px;
@@ -46,11 +47,20 @@ tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+.centered-container {
+  width: 90%;
+  height: 100vh;
+  border: none;
+  margin-left: 30px;
+  justify-content: center; /* Center items horizontally */
+  align-items: center;     /* Center items vertically */
+}
+
 .container {
   background-color: transparent; /* Make the container background transparent */
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   height: auto;
   width: 100%; /* Set the width to 80% of the viewport width */
   margin: 30px; /* Add margin bottom between containers */
@@ -61,7 +71,7 @@ tbody tr:nth-child(even) {
   border-radius: 30px; /* Rounded corners */
   padding: 30px; /* Add padding if needed */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-  width: 90%; /* Allow the content div to stretch horizontally */
+  width: 95%; /* Allow the content div to stretch horizontally */
 }
 
 .checkbox-container {
@@ -156,4 +166,23 @@ tbody tr:nth-child(even) {
 
 .info-box p {
   margin: 0; /* Remove default margin from <p> to keep box tidy */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #464242;
+  font-size: 17px;
+  display: block; /* Ensure the link fills the entire <li> */
+  padding: 10px 17px; /* Add padding for better spacing */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.nav-link:hover {
+  background-color: #d3d3d3; /* Lighter shade of gray on hover */
+}
+
+.active-link {
+  background-color: #b0b0b0; /* Change to a darker shade for the active link */
+  color: #000; /* Ensure text color contrasts well */
 }

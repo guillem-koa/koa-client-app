@@ -4,7 +4,7 @@ const Remote = () => {
 const  url = "http://37.187.176.243:1880/ui";
 
 return (
-    <div style={{ width: "90%", height: "100vh", border: "none",  margin: '50px' }}>
+    <div class="centered-container">
       <iframe
         src={url}
         style={{ width: "100%", height: "100%", border: "none" , borderRadius: '20px'}}

@@ -1,15 +1,26 @@
 .sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: #f5f5f5;
-    padding: 20px;
+    width: 290px;
+    height: 100vh; /* Makes the sidebar occupy the full height of the screen */
+    background-color: white;
+    padding: 40px;
     box-sizing: border-box;
   }
   
   .title {
-    font-size: 24px;
-    margin-bottom: 30px;
+    display: flex;
+    align-items: center; /* Vertically centers the text */
+    font-size: 20px;
+    margin-bottom: 50px;
     color: #000;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    display: flex;
+    align-items: center; /* Vertically centers the text */
+    font-size: 16px;
+    color: #b0a8a8;
+    margin-top: 25px;
   }
   
   nav ul {
@@ -18,16 +29,26 @@
   }
   
   nav ul li {
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 17px;
+    transition: background-color 0.3s, border-radius 0.3s; /* Smooth transition for background and border-radius */
+    border-radius: 8px; /* Rounded corners */
+
   }
   
   nav ul li a {
     text-decoration: none;
-    color: #000;
-    font-size: 18px;
-  }
-  
-  nav ul li a.active-link {
-    color: #73c2de;
-  }
+    color: #464242;
+    font-size: 17px;
+    display: block; /* Make the link fill the entire <li> */
+    height: 100%; /* Ensure the link fills the height of the <li> */
+    width: 100%; /* Ensure the link fills the width of the <li> */
+    border-radius: 8px; /* Ensure the link also has rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+}
+
+  nav ul li:hover {
+    background-color: #d3d3d3; /* Lighter shade of gray on hover */
+}
   
