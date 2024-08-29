@@ -10,9 +10,9 @@ import './App.css';
 const App = () => {
   return (
     <Router>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', height: '870px' }}>
         <Sidebar />
-        <div style={{ flex: 1, padding: '20px', backgroundColor: '#f5f5f5' }}>
+       <div class="full-height-div">
           <Routes>
             <Route path="/" element={<Reporting />} />
             <Route path="/reporting" element={<Reporting />} />

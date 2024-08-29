@@ -26,7 +26,7 @@ const Sidebar = () => {
           </ul>
           </nav>
 
-          <div className="subtitle"> AQUAGAR </div>
+          <div className="subtitle"> LAB </div>
      <nav>
         <ul>
           <li>

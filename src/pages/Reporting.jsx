@@ -6,7 +6,6 @@ function Reporting() {
 
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -45,7 +44,6 @@ function Reporting() {
     setSelectedMachines(updatedMachines);
     setFilteredData(generateOutputsData.filter(item => updatedMachines.includes(item.Machine)));
   };
-
 
   const generateOutputsTable = (
     <div class="container">
@@ -111,7 +109,7 @@ function Reporting() {
     </div>
     </div>
   );
-
+  
   const sendEmailsTable = (
     <div class="container">
     <div class="content">      
@@ -163,6 +161,31 @@ function Reporting() {
     </div>
   );
   
+
+  const refreshResults = (
+    <div class="container">
+    <div class="content">      
+    <h2>Refresh Results 🔄</h2>
+    <label style={{ fontWeight: 'bold', marginLeft: '50px', marginRight: '30px' }}>Folder ID</label>
+            <select style={{ marginLeft: '50px',
+              marginRight: '30px',
+              padding: '10px', // Increase padding for larger input box
+              fontSize: '16px', // Larger text
+              width: '350px', // Increase width
+            }}>
+                <option value="">Select an AQUAGAR</option>
+                <option value="AA-202310-001">AA-202310-001</option>
+                <option value="AA-202403-005">AA-202403-005</option>
+                <option value="AA-202403-006">AA-202403-006</option>
+                {/* Add more options as needed */}
+            </select>
+            <button class="btn"> Preview</button>
+
+    </div>
+    </div>
+  );
+
+
   async function handleOutputsButtonClick(machine, cycleStart, experiment_folder_id) {
     const url = `http://37.187.176.243:8001/AA_generate_outputs?serial_num=${machine}&cycle_start=${cycleStart}&experiment_folder_id=${experiment_folder_id}`;
     try {
@@ -203,6 +226,7 @@ function Reporting() {
 <main className="main-content">
         {generateOutputsTable}
         {sendEmailsTable}
+        {refreshResults}
       </main>
     </div>
   );
