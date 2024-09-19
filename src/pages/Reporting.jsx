@@ -187,7 +187,7 @@ function Reporting() {
 
 
   async function handleOutputsButtonClick(machine, cycleStart, experiment_folder_id) {
-    const url = `http://37.187.176.243:8001/AA_generate_outputs?serial_num=${machine}&cycle_start=${cycleStart}&experiment_folder_id=${experiment_folder_id}`;
+    const url = `http://37.187.176.243:8001/AA_generate_outputs?experiment_folder_id=${experiment_folder_id}`;
     try {
       setLoading(true); // Set loading state to true when the button is clicked
       const response = await fetch(url);
