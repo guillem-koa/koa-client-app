@@ -1,6 +1,5 @@
 .sidebar {
     width: 290px;
-    height: 100vh; /* Makes the sidebar occupy the full height of the screen */
     background-color: white;
     padding: 40px;
     box-sizing: border-box;

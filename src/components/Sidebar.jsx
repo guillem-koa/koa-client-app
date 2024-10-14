@@ -5,10 +5,6 @@ import { FaFish, FaDna, FaBacteria } from 'react-icons/fa';
 import { MdOutlineStackedBarChart } from 'react-icons/md';
 import { VscRemoteExplorer } from "react-icons/vsc";
 
-
-
-
-
 const Sidebar = () => {
   return (
     <div className="sidebar">

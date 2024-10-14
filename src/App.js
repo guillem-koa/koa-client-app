@@ -10,7 +10,7 @@ import './App.css';
 const App = () => {
   return (
     <Router>
-      <div style={{ display: 'flex', height: '870px' }}>
+      <div class="full-page">
         <Sidebar />
        <div class="full-height-div">
           <Routes>

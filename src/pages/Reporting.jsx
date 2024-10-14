@@ -122,7 +122,8 @@ function Reporting() {
                 <th key={key}>{key}</th>
               ))}
               <th>Test Mail</th>
-              <th>Report Mail</th>
+              <th>Mid Cycle</th>
+              <th>Full Cycle</th>
             </tr>
           </thead>
           <tbody>
@@ -141,12 +142,17 @@ function Reporting() {
                 ))}
                 {/* This generates the Send Mail button (only if HC is true) */}
                 <td>
-                    <button class = "btn" onClick={() => handleEmailsButtonClick(item['Machine'], item['Cycle Start'], item['Folder ID'].split("/").pop(), true)}>
+                    <button class = "btn" onClick={() => handleEmailsButtonClick(item['Machine'], item['Cycle Start'], item['Folder ID'].split("/").pop(), 'test')}>
                       Send
                     </button>
                 </td>
                 <td>
-                    <button class = "btn" onClick={() => handleEmailsButtonClick(item['Machine'], item['Cycle Start'], item['Folder ID'].split("/").pop(), false)}>
+                    <button class = "btn" onClick={() => handleEmailsButtonClick(item['Machine'], item['Cycle Start'], item['Folder ID'].split("/").pop(), 'midCycle')}>
+                      Send
+                    </button>
+                </td>
+                <td>
+                    <button class = "btn" onClick={() => handleEmailsButtonClick(item['Machine'], item['Cycle Start'], item['Folder ID'].split("/").pop(), 'fullCycle')}>
                       Send
                     </button>
                 </td>
@@ -161,30 +167,91 @@ function Reporting() {
     </div>
   );
   
+  
+  const [serialNum, setSerialNum] = useState("defaultSerial");
+  const [hard, setHard] = useState(false);
+
+  // Function to handle button click and call the API
+  /*const handleSubmit = () => {
+    const apiUrl = "http://37.187.176.243:8001/AA_add_resultados_to_muestras"; // Replace with your actual API URL
+
+    // Prepare the payload
+    const payload = {
+      serial_num: serialNum,
+      hard: hard
+    };
+
+    // Make the HTTP request
+    fetch(apiUrl, {
+      method: "POST", // or "GET", depending on your API
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload), // Only needed for POST requests
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+*/
 
   const refreshResults = (
     <div class="container">
-    <div class="content">      
-    <h2>Refresh Results 🔄</h2>
-    <label style={{ fontWeight: 'bold', marginLeft: '50px', marginRight: '30px' }}>Folder ID</label>
-            <select style={{ marginLeft: '50px',
-              marginRight: '30px',
-              padding: '10px', // Increase padding for larger input box
-              fontSize: '16px', // Larger text
-              width: '350px', // Increase width
-            }}>
-                <option value="">Select an AQUAGAR</option>
-                <option value="AA-202310-001">AA-202310-001</option>
-                <option value="AA-202403-005">AA-202403-005</option>
-                <option value="AA-202403-006">AA-202403-006</option>
-                {/* Add more options as needed */}
-            </select>
-            <button class="btn"> Preview</button>
+      <div class="content" >
+        <h2>Refresh Results 🔄</h2>
+        <label style={{ fontWeight: 'bold', marginLeft: '50px', marginRight: '5px' }}>Machine</label>
+        <select
+          id="serialNum"
+          value={serialNum}
+          onChange={(e) => setSerialNum(e.target.value)}
+          style={{
+            marginLeft: '50px',
+            marginRight: '30px',
+            padding: '10px', // Increase padding for larger input box
+            fontSize: '14px', // Larger text
+            width: '150px', // Increase width
+          }}>
+          <option value="">Select AQUAGAR</option>
+          <option value="AA-202310-001">AA-202310-001</option>
+          <option value="AA-202312-002">AA-202312-002</option>
+          <option value="AA-202403-005">AA-202403-005</option>
+          <option value="AA-202403-006">AA-202403-006</option>
+          {/* Add more options as needed */}
+        </select>
 
-    </div>
+        <label style={{ fontWeight: 'bold', marginLeft: '50px', marginRight: '5px' }}> Refresh Type </label>
+
+        <select
+          id="hard"
+          value={hard.toString()}  // Convert boolean state to string for proper binding
+          onChange={(e) => setHard(e.target.value === "full")}  // Set to true if "full" is selected
+          style={{
+            marginLeft: '50px',
+            marginRight: '80px',
+            padding: '10px', // Increase padding for larger input box
+            fontSize: '14px', // Larger text
+            width: '120px', // Increase width
+          }}
+        >
+          <option value="false">Optimized</option> {/* Sets hard to false */}
+          <option value="true">Full</option>       {/* Sets hard to true */}
+        </select>
+
+        <button class="btn"> Refresh </button>
+
+        {/* Conditionally render text based on the selection */}
+        {hard === false && <div className="text-container"> <p style={{ margin: '25px' }}>
+          ℹ️💁‍♂️ <b>Optimized</b> refreshing will only update missing results from Muestras y Resultados. To update results this way, first <b> remove traffic-lights</b> of rows to be updated in the spreadsheet.</p></div>}
+        {hard === true && <div className="text-container"> <p style={{ margin: '25px' }}>
+          ℹ️💁‍♂️ <b>Full</b> refreshing will regenerate all entries of Muestras y Resultados using results found in individual experiment folders. <b> Caution </b>: will take more time, and could have undesoired features (e.g. adding old pathogen columns to spredsheet like Micrococcus, Photobacterium, etc.) </p></div>}
+      </div>
     </div>
   );
-
 
   async function handleOutputsButtonClick(machine, cycleStart, experiment_folder_id) {
     const url = `http://37.187.176.243:8001/AA_generate_outputs?experiment_folder_id=${experiment_folder_id}`;
@@ -204,15 +271,15 @@ function Reporting() {
     }
   }
 
-  async function handleEmailsButtonClick(machine, cycleStart, experiment_folder_id, isTest) {
-    const url = `http://37.187.176.243:8001/AA_send_emails?serial_num=${machine}&cycle_start=${cycleStart}&experiment_folder_id=${experiment_folder_id}&test=${isTest}`;
+  async function handleEmailsButtonClick(machine, cycleStart, experiment_folder_id, emailType) {
+    const url = `http://37.187.176.243:8001/AA_send_emails?experiment_folder_id=${experiment_folder_id}&emailType=${emailType}`;
     window.open(url, '_blank');
     window.location.reload(); // Refresh the entire page
   }
 
   if (isLoading) {
     return (
-        <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
         {/* Loading message */}
         <h2>Loading...</h2>
         {/* Animated gif */}
@@ -226,7 +293,7 @@ function Reporting() {
 <main className="main-content">
         {generateOutputsTable}
         {sendEmailsTable}
-        {refreshResults}
+       {/* {refreshResults} */}
       </main>
     </div>
   );
