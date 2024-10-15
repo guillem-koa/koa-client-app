@@ -268,7 +268,7 @@ function Reporting() {
 <main className="main-content">
         {generateOutputsTable}
         {sendEmailsTable}
-        {refreshResults}
+        {/*{refreshResults}*/}
       </main>
     </div>
   );
