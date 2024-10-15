@@ -109,7 +109,6 @@ tbody tr:nth-child(even) {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 10px;
- /*padding: 10px;  Adjust the padding value as needed */
   margin: 42px
 }
 

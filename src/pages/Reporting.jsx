@@ -167,44 +167,14 @@ function Reporting() {
     </div>
   );
   
-  
   const [serialNum, setSerialNum] = useState("defaultSerial");
   const [hard, setHard] = useState(false);
-
-  // Function to handle button click and call the API
-  /*const handleSubmit = () => {
-    const apiUrl = "http://37.187.176.243:8001/AA_add_resultados_to_muestras"; // Replace with your actual API URL
-
-    // Prepare the payload
-    const payload = {
-      serial_num: serialNum,
-      hard: hard
-    };
-
-    // Make the HTTP request
-    fetch(apiUrl, {
-      method: "POST", // or "GET", depending on your API
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload), // Only needed for POST requests
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the response
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-  };
-*/
 
   const refreshResults = (
     <div class="container">
       <div class="content" >
         <h2>Refresh Results 🔄</h2>
-        <label style={{ fontWeight: 'bold', marginLeft: '50px', marginRight: '5px' }}>Machine</label>
+        <label style={{ fontWeight: 'bold', marginLeft: '50px' }}>Machine</label>
         <select
           id="serialNum"
           value={serialNum}
@@ -221,18 +191,17 @@ function Reporting() {
           <option value="AA-202312-002">AA-202312-002</option>
           <option value="AA-202403-005">AA-202403-005</option>
           <option value="AA-202403-006">AA-202403-006</option>
-          {/* Add more options as needed */}
         </select>
 
-        <label style={{ fontWeight: 'bold', marginLeft: '50px', marginRight: '5px' }}> Refresh Type </label>
+        <label style={{ fontWeight: 'bold', marginLeft: '20px' }}> Refresh Type </label>
 
         <select
           id="hard"
-          value={hard.toString()}  // Convert boolean state to string for proper binding
-          onChange={(e) => setHard(e.target.value === "full")}  // Set to true if "full" is selected
+          value={hard ? "true" : "false"}  // Convert boolean state to string for proper binding
+          onChange={(e) => setHard(e.target.value === "true")}  // Convert string back to boolean
           style={{
             marginLeft: '50px',
-            marginRight: '80px',
+            marginRight: '50px',
             padding: '10px', // Increase padding for larger input box
             fontSize: '14px', // Larger text
             width: '120px', // Increase width
@@ -242,13 +211,13 @@ function Reporting() {
           <option value="true">Full</option>       {/* Sets hard to true */}
         </select>
 
-        <button class="btn"> Refresh </button>
+        <button class="btn" onClick={() => handleRefreshButtonClick(serialNum, hard)}> Refresh </button>
 
         {/* Conditionally render text based on the selection */}
         {hard === false && <div className="text-container"> <p style={{ margin: '25px' }}>
           ℹ️💁‍♂️ <b>Optimized</b> refreshing will only update missing results from Muestras y Resultados. To update results this way, first <b> remove traffic-lights</b> of rows to be updated in the spreadsheet.</p></div>}
         {hard === true && <div className="text-container"> <p style={{ margin: '25px' }}>
-          ℹ️💁‍♂️ <b>Full</b> refreshing will regenerate all entries of Muestras y Resultados using results found in individual experiment folders. <b> Caution </b>: will take more time, and could have undesoired features (e.g. adding old pathogen columns to spredsheet like Micrococcus, Photobacterium, etc.) </p></div>}
+          ℹ️💁‍♂️ <b>Full</b> refreshing will regenerate all entries of Muestras y Resultados using results found in individual experiment folders. <b> Caution </b>: will take more time, and could have undesired features (e.g. adding old pathogen columns to spredsheet like Micrococcus, Photobacterium, etc.) </p></div>}
       </div>
     </div>
   );
@@ -277,6 +246,12 @@ function Reporting() {
     window.location.reload(); // Refresh the entire page
   }
 
+  async function handleRefreshButtonClick(serialNum, hard) {
+    const url = `http://37.187.176.243:8001/AA_add_resultados_to_muestras?serial_num=${serialNum}&hard=${hard}`;
+    window.open(url, '_blank');
+    window.location.reload(); // Refresh the entire page
+  }
+
   if (isLoading) {
     return (
       <div style={{ textAlign: 'center' }}>
@@ -293,7 +268,7 @@ function Reporting() {
 <main className="main-content">
         {generateOutputsTable}
         {sendEmailsTable}
-       {/* {refreshResults} */}
+        {refreshResults}
       </main>
     </div>
   );
