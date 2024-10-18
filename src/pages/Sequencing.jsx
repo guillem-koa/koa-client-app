@@ -71,7 +71,6 @@ const Sequencing = () => {
           <p>
             Enter the <strong> Google Drive Folder ID </strong> of a folder containing sequencing results which must be 'ab1' format. <br />
             The app generates a <strong> spreadsheet </strong> with BLAST sequencing results showing most accurate matchings. <br />
-            <strong> Important☝️</strong> The folder must have accessibility status <em>Everyone with the link</em> can be <em>Editor</em>.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Reporting() {
+function AAReporting() {
   const [apiResponse, setApiResponse] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -48,7 +48,7 @@ function Reporting() {
   const generateOutputsTable = (
     <div class="container">
     <div class="content">
-      <h2 style={{ fontWeight: 'bold' }}> Generate Outputs 📊</h2>
+      <h2 style={{ fontWeight: 'bold' }}> AQUAGAR Outputs 📊</h2>
 
       <div className="checkbox-container">
           {uniqueMachines.map(machine => (
@@ -276,4 +276,4 @@ function Reporting() {
 
 }
 
-export default Reporting;
+export default AAReporting;

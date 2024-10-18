@@ -1,7 +1,7 @@
  import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../Sidebar.css';
-import { FaFish, FaDna, FaBacteria } from 'react-icons/fa';
+import { FaFish, FaDna, FaBacteria, FaTable } from 'react-icons/fa';
 import { MdOutlineStackedBarChart } from 'react-icons/md';
 import { VscRemoteExplorer } from "react-icons/vsc";
 
@@ -14,10 +14,20 @@ const Sidebar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/reporting" activeClassName="active-link"> <MdOutlineStackedBarChart /> &nbsp; Reporting</NavLink>
+            <NavLink exact to="/AAReporting" activeClassName="active-link"> <MdOutlineStackedBarChart /> &nbsp; Reporting</NavLink>
           </li>
           <li>
             <NavLink exact to="/remote" activeClassName="active-link"><VscRemoteExplorer /> &nbsp; Remote</NavLink>
+          </li>
+          </ul>
+          </nav>
+
+
+      <div className="subtitle"> AQUAGEN </div>
+      <nav>
+        <ul>
+          <li>
+            <NavLink exact to="/AGResults" activeClassName="active-link"> <FaTable /> &nbsp; Results</NavLink>
           </li>
           </ul>
           </nav>

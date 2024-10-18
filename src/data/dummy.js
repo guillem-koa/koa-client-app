@@ -9,7 +9,7 @@ export const links = [
     links: [
 
       {
-        name: 'reporting',
+        name: 'AAReporting',
         icon: <MdOutlineStackedBarChart />,
       },
       {
