@@ -4,6 +4,7 @@ import '../Sidebar.css';
 import { FaFish, FaDna, FaBacteria, FaTable } from 'react-icons/fa';
 import { MdOutlineStackedBarChart } from 'react-icons/md';
 import { VscRemoteExplorer } from "react-icons/vsc";
+import { GoRocket } from "react-icons/go";
 
 const Sidebar = () => {
   return (
@@ -15,6 +16,9 @@ const Sidebar = () => {
         <ul>
           <li>
             <NavLink exact to="/AAReporting" activeClassName="active-link"> <MdOutlineStackedBarChart /> &nbsp; Reporting</NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/aitracker" activeClassName="active-link"> <GoRocket /> &nbsp; AI Tracker</NavLink>
           </li>
           <li>
             <NavLink exact to="/remote" activeClassName="active-link"><VscRemoteExplorer /> &nbsp; Remote</NavLink>

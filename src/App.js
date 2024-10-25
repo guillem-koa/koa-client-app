@@ -6,6 +6,8 @@ import AGResults from './pages/AGResults';
 import Remote from './pages/Remote';
 import ColonyCounting from './pages/ColonyCounting';
 import Sequencing from './pages/Sequencing';
+import AiTracker from './pages/AiTracker';
+
 import './App.css';
 
 const App = () => {
@@ -21,6 +23,7 @@ const App = () => {
             <Route path="/remote" element={<Remote />} />
             <Route path="/colonycounting" element={<ColonyCounting />} />
             <Route path="/sequencing" element={<Sequencing />} />
+            <Route path="/aitracker" element={<AiTracker />} />
           </Routes>
         </div>
       </div>

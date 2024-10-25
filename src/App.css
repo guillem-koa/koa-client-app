@@ -89,18 +89,6 @@ tbody tr:nth-child(even) {
   width: 95%; /* Allow the content div to stretch horizontally */
 }
 
-.checkbox-container {
-  display: flex;
-  background-color: #f2f2f2;
-  border-radius: 30px;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 40px;
-  padding: 7px; /* Adjust the padding value as needed */
-  margin: 42px
-}
-
 .text-container {
   display: flex;
   background-color: #f2f2f2;
@@ -112,8 +100,18 @@ tbody tr:nth-child(even) {
   margin: 42px
 }
 
+.checkbox-container {
+  display: flex;
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  gap: 5px;
+  justify-content: center; /* Align checkboxes to the left */
+  padding: 7px;
+  margin: 42px;
+}
+
 .checkbox-label {
-  margin: 10px;
+  margin: 8px;
   font-size: 13px; /* Adjust this value as needed */
 }
 
