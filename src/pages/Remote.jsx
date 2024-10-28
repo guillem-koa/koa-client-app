@@ -7,7 +7,7 @@ return (
     <div class="centered-container">
       <iframe
         src={url}
-        style={{ width: "100%", height: "100%", border: "none" , borderRadius: '20px'}}
+        style={{ width: "100%", height: "90vh", border: "none" , borderRadius: '20px'}}
         title="Embedded Website"
       />
     </div>  

@@ -16,9 +16,7 @@
 
 .full-height-div {
   padding: 50px;
-  overflow-y: auto;
   flex-grow: 1;              /* Allow the div to grow and take up remaining space */
-  display: flex;             /* Use flex to adjust the layout */
   flex-direction: column;    /* Stack children vertically */
   min-height: 100vh;         /* Ensure the div is at least as tall as the viewport */
 }
