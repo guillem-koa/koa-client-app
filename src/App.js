@@ -6,6 +6,7 @@ import AGResults from './pages/AGResults';
 import Remote from './pages/Remote';
 import ColonyCounting from './pages/ColonyCounting';
 import Sequencing from './pages/Sequencing';
+import RoboflowUpload from './pages/RoboflowUpload'
 import AiTracker from './pages/AiTracker';
 
 import './App.css';
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/remote" element={<Remote />} />
             <Route path="/colonycounting" element={<ColonyCounting />} />
             <Route path="/sequencing" element={<Sequencing />} />
+            <Route path="/roboflowupload" element={<RoboflowUpload />} />
             <Route path="/aitracker" element={<AiTracker />} />
           </Routes>
         </div>

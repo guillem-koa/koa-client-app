@@ -7,7 +7,6 @@ export const links = [
   {
     title: 'AQUAGAR',
     links: [
-
       {
         name: 'AAReporting',
         icon: <MdOutlineStackedBarChart />,
@@ -20,7 +19,11 @@ export const links = [
   },
   {
     title: 'Lab funs',
-    links: [{
+    links: [    {
+      name: 'roboflowupload',
+      icon: <FaDna /> ,
+    },
+      {
       name: 'colonycounting',
       icon: <FaBacteria />,
     },

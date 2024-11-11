@@ -1,7 +1,7 @@
  import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../Sidebar.css';
-import { FaFish, FaDna, FaBacteria, FaTable } from 'react-icons/fa';
+import { FaFish, FaDna, FaBacteria, FaTable, FaUpload } from 'react-icons/fa';
 import { MdOutlineStackedBarChart } from 'react-icons/md';
 import { VscRemoteExplorer } from "react-icons/vsc";
 import { GoRocket } from "react-icons/go";
@@ -39,6 +39,9 @@ const Sidebar = () => {
           <div className="subtitle"> LAB </div>
      <nav>
         <ul>
+        <li>
+            <NavLink exact to="/roboflowupload" activeClassName="active-link"><FaUpload />  &nbsp; Roboflow Upload</NavLink>
+          </li>
           <li>
             <NavLink exact to="/colonycounting" activeClassName="active-link"> <FaBacteria />  &nbsp; Colonycounting</NavLink>
           </li>
