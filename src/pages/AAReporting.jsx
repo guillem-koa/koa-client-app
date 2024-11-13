@@ -241,7 +241,7 @@ function AAReporting() {
   }
 
   async function handleEmailsButtonClick(machine, cycleStart, experiment_folder_id, emailType) {
-    const url = `http://37.187.176.243:8001/AA_send_emails?experiment_folder_id=${experiment_folder_id}&emailType=${emailType}`;
+    const url = `http://37.187.176.243:8001/AA_send_emails?experiment_folder_id=${experiment_folder_id}&email_type=${emailType}`;
     window.open(url, '_blank');
     window.location.reload(); // Refresh the entire page
   }
