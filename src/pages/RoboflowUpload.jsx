@@ -8,7 +8,7 @@ const RoboflowUpload = () => {
   const [agarType, setAgarType] = useState('');
 
   // Hardcoded options for each dropdown
-  const serialNumbers = ['AA-202310-001', 'AA-202403-005'];  // Example serial numbers
+  const serialNumbers = ['AA-202310-001', 'AA-202403-005', 'AA-202403-006'];  // Example serial numbers
   const rows = ['F1', 'F2'];                       // Example Rows
   const agarTypes = ['TCBS', 'MSA', 'Blood'];      // Example Agar Types
 
