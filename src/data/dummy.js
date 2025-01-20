@@ -20,7 +20,7 @@ export const links = [
   {
     title: 'Lab funs',
     links: [    {
-      name: 'roboflowupload',
+      name: 'resultados',
       icon: <FaDna /> ,
     },
       {

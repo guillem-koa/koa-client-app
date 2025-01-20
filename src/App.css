@@ -1,3 +1,4 @@
+
 /* App.css */
 .App {
   display: flex;
@@ -15,10 +16,34 @@
 }
 
 .full-height-div {
-  padding: 50px;
+  padding: 20px;
   flex-grow: 1;              /* Allow the div to grow and take up remaining space */
   flex-direction: column;    /* Stack children vertically */
   min-height: 100vh;         /* Ensure the div is at least as tall as the viewport */
+  
+}
+
+.navbar {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* Ensure no overflow from the fixed div */
+}
+
+.circle-button {
+  width: 64px;
+  height: 64px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.circle-button:hover {
+  background-color: #d3d3d3;
 }
 
 h2 {
@@ -32,8 +57,10 @@ h2 {
 /* Make the table horizontally scrollable */
 .table-container {
   overflow-x: auto;
-  max-width: 80%;
   padding: 20px; /* Adjust the padding value as needed */
+  display: flex;
+  justify-content: center; /* Align checkboxes to the left */
+  margin: 42px;
 }
 
 table {
@@ -61,6 +88,36 @@ tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
 .centered-container {
   width: 90%;
   border: none;
@@ -83,7 +140,7 @@ tbody tr:nth-child(even) {
   background-color: #ffffff; /* Pure white */
   border-radius: 30px; /* Rounded corners */
   padding: 30px; /* Add padding if needed */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
   width: 95%; /* Allow the content div to stretch horizontally */
 }
 
@@ -207,3 +264,4 @@ tbody tr:nth-child(even) {
   background-color: #b0b0b0; /* Change to a darker shade for the active link */
   color: #000; /* Ensure text color contrasts well */
 }
+
