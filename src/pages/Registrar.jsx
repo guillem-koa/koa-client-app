@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../Form.css'; // Import the CSS file
 import '../App.css'; // Import the CSS file
 
+//Committed change 
+
 const Registrar = () => {
   const [formData, setFormData] = useState({
     plate_id: '',
