@@ -2,7 +2,7 @@
   
   /* Labels */
   form label {
-    display: block;
+    display: inline-block;
     margin-left: 50px;
     margin-bottom: px;
     color: #333;
@@ -11,7 +11,7 @@
   /* Inputs */
   form input, 
   form select {
-    width: calc(100% - 50px); /* Account for left margin and padding */
+    width: 100px; /* Account for left margin and padding */
     margin-left: 0px; /* Larger margin for inputs */
     margin-top: 10px;
     margin-bottom: 15px;

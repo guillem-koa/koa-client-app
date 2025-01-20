@@ -57,10 +57,7 @@ h2 {
 /* Make the table horizontally scrollable */
 .table-container {
   overflow-x: auto;
-  padding: 20px; /* Adjust the padding value as needed */
-  display: flex;
-  justify-content: center; /* Align checkboxes to the left */
-  margin: 42px;
+  margin: 30px
 }
 
 table {
@@ -182,7 +179,7 @@ tbody tr:nth-child(even) {
   text-align: center; /* Center align text */
   text-decoration: none; /* Remove default underline */
   display: inline-block; /* Make it inline-block to adjust padding and margin */
-  font-size: 14px; /* Adjust font size */
+  font-size: 16px; /* Adjust font size */
   margin: 4px; /* Add margin */
   cursor: pointer; /* Show pointer cursor on hover */
   border-radius: 18px; /* Rounded corners */
